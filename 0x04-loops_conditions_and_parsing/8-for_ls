@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # prints the content of the current directory in a list format where only the part of the name after the first dash is displayed
 
-L="$( ls | cut -d- -f 2- )"
+L="$(  find . -maxdepth 1 -type f -exec basename {} \; | cut -d- -f 2- )"
 for i in $L; do
 	echo "$i"
 done
