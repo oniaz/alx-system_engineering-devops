@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Printing numbers from 1 to 20 using the while loop and case statement.
+# If the number is 4, prints "bad luck from China".
+# If the number is 9, prints "bad luck from Japan".
+# If the number is 17, prints "bad luck from Italy".
+
+i=1
+while [ $i -le 20 ]
+do
+	echo "$i"
+	case $i in
+		4)
+			echo "bad luck from China"
+		;;
+		9)
+			echo "bad luck from Japan"
+		;;
+		17)
+			echo "bad luck from Italy"
+		;;
+	esac
+	(( i++ ))
+done
