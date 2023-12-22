@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Displaying the content of /etc/passwd (username, user id, Hone directory path)
+
+file="/etc/passwd"
+
+if [ ! -e $file ]; then
+	exit
+fi
+
+cut -d: -f1,3,6 $file | paste -d'\n' - - 
