@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Printing "To infinity and beyond" indefinitely using a while loop, with a 2 second pause between each loop.
+
+i=1
+while [ $i -gt 0 ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
