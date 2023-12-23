@@ -2,11 +2,17 @@
 # does a lot of things
 
 file=/var/run/myscript.pid
-
 echo "$$" > $file
 
+ragequit() 
+{
+	rm $file
+	exit
+}
+
 trap 'echo "Y U no love me?!"' SIGINT
-trap 'echo "I hate the kill command"; exit ' SIGTERM
+trap 'echo "I hate the kill command"; ragequit' SIGTERM
+trap 'ragequit' SIGQUIT
 
 while true; do
 	echo "To infinity and beyond"
