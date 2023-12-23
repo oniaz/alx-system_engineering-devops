@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# does a lot of things
+
+file=/var/run/myscript.pid
+
+echo "$$" > $file
+
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'echo "I hate the kill command"; exit ' SIGTERM
+
+while true; do
+	echo "To infinity and beyond"
+done
