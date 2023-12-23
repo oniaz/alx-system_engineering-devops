@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Force stops the process of "7-highlander" script
+
+pid=$( pgrep -f "7-highlander" )
+
+kill -9 "$pid"
