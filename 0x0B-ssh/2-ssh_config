@@ -1,0 +1,5 @@
+# Modifying the SSH client configuration to enable authentication without a password using the private key ~/.ssh/school.
+
+Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
