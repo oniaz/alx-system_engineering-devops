@@ -2,7 +2,7 @@
 
 file_line { 'add_ssh_config_entry':
   ensure  => present,
-  path => '~/.ssh/config',
+  path => '/etc/ssh/ssh_config',
   line => "
     Host *
         IdentityFile ~/.ssh/school
