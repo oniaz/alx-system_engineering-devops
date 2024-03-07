@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Installs nginx on a remote server.
 
-apt -y update
-apt install -y nginx
-ufw allow 'Nginx HTTP' # enabling traffic on port80
-echo "Hello World!" >> /var/www/html/hello_world
-service nginx start
+sudo apt -y update
+sudo apt install -y nginx
+sudo ufw allow 'Nginx HTTP' # enabling traffic on port80
+sudo echo "Hello World!" >> /var/www/html/hello_world
+sudo service nginx start
