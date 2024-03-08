@@ -4,6 +4,6 @@
 sudo apt -y update
 sudo apt install -y nginx
 sudo ufw allow 'Nginx HTTP' # enabling traffic on port80
-sudo chmod 777 /var/www/html -R
-sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+#sudo chmod 777 /var/www/html -R
+sudo echo "Hello World!" > /var/www/html/index.html
 sudo service nginx start
