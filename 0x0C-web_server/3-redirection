@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Installs nginx on a remote server, configures a permantent redirect.
+
+sudo apt -y update
+sudo apt install -y nginx
+sudo ufw allow 'Nginx HTTP' # enabling traffic on port80
+#sudo chmod 777 /var/www/html -R
+
+sudo echo "Hello World!" > /var/www/html/index.html
+
+sudo echo "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        if ($request_filename ~ redirect_me){
+                rewrite ^ https://www.youtube.com/watch?v=dQw4w9WgXcQ? permanent;
+        }
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}" > /etc/nginx/sites-available/default
+
+
+sudo service nginx start
+
