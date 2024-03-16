@@ -12,3 +12,5 @@ docker exec "$container_id_or_name" service apache2 status
 docker exec "$container_id_or_name" service apache2 start
 
 docker exec "$container_id_or_name" service apache2 status
+
+service apache2 start
