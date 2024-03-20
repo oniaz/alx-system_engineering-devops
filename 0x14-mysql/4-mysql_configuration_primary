@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # MySQL primary configuration file
 
 [mysqld]
