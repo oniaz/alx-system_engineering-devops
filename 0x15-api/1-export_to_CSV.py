@@ -26,7 +26,7 @@ def main(u_id):
 
         for todo in todos:
             row = f'"{u_id}","{username}","{todo["completed"]}","' +\
-                    '"{todo["title"]}"\n'
+                    f'{todo["title"]}"\n'
             file.write(row)
 
 
