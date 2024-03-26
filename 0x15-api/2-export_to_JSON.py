@@ -37,7 +37,8 @@ def main(u_id):
 
     filename = f"{u_id}.json"
     with open(filename, "w", encoding="utf-8") as file:
-        file.write(json.dumps(user_dict))
+        json.dump(user_dict, file)
+        # file.write(json.dumps(user_dict))
 
 
 if __name__ == "__main__":
