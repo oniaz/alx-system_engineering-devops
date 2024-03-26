@@ -8,7 +8,7 @@ from sys import argv
 
 
 def main(u_id):
-    """for a given employee ID, export data in the CSV format about his/her
+    """for a given employee ID, rexport data in the CSV format about his/her
     TODO list."""
     user_url = f"https://jsonplaceholder.typicode.com/users?id={u_id}"
     todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={u_id}"
@@ -21,26 +21,13 @@ def main(u_id):
 
     username = users[0]['username']
 
-    # headers = ['id', 'size', 'x', 'y']
-    # csv_writer = csv.DictWriter(file, fieldnames=headers)
-    # csv_writer.writeheader()
-
     filename = f"{u_id}.csv"
     with open(filename, "w", encoding="utf-8") as file:
 
         writer = csv.writer(file)
         for todo in todos:
-            row = [f"{u_id}", f"{username}", f"{todo['completed']}",
-                   f"{todo['title']}"]
+            row = [f"{u_id},{username},{todo['completed']},{todo['title']}"]
             writer.writerow(row)
-
-    # todos_c = len(todos)
-    # done_todos = [todo for todo in todos if todo['completed']]
-    # done_todos_c = len(done_todos)
-
-    # print(f"Employee {name} is done with tasks({done_todos_c}/{todos_c}):")
-    # for todo in done_todos:
-    #     print(f"\t {todo['title']}")
 
 
 if __name__ == "__main__":
