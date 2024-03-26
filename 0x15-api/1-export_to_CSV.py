@@ -19,15 +19,15 @@ def main(u_id):
     users = user_response.json()
     todos = todos_response.json()
 
-    username = users[0]['username']
-
+    username = users[0]["username"]
     filename = f"{u_id}.csv"
     with open(filename, "w", encoding="utf-8") as file:
-
         writer = csv.writer(file)
+
         for todo in todos:
-            row = [f"{u_id},{username},{todo['completed']},{todo['title']}"]
-            writer.writerow(row)
+            row = f'"{u_id}","{username}","{todo["completed"]}","' +\
+                    '"{todo["title"]}"\n'
+            file.write(row)
 
 
 if __name__ == "__main__":
