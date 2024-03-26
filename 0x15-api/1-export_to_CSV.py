@@ -30,7 +30,8 @@ def main(u_id):
 
         writer = csv.writer(file)
         for todo in todos:
-            row = [f"{u_id}", f"{username}", f"{todo['completed']}", f"{todo['title']}"]
+            row = [f"{u_id}", f"{username}", f"{todo['completed']}",
+                   f"{todo['title']}"]
             writer.writerow(row)
 
     # todos_c = len(todos)
