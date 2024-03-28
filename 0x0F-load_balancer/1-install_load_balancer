@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# configuring web-02 to be identical to web-01 as in the previous project.
+# adding a custom Nginx response header that is the hostname of the server Nginx is running on
+# Configuring HAproxy so that it sends traffic to web-01 and web-02, Distributi the requests using roundrobin algorithm
+
+
+sudo apt -y update
+sudo apt install -y nginx
+sudo ufw allow 'Nginx HTTP' # enabling traffic on port80
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+
+sudo sed -i '/^}$/i \ location /redirect_me {return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
+
+sudo sed -i '' '/^}$/i\
+        error_page 404 /custom_404.html;\
+        location = /custom_404.html {\
+                internal;\
+        }
+' /etc/nginx/sites-available/default
+
+sudo sed -i "/server_name _/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+
+sudo apt install haproxy
+
+#aint nobody got the time and it wont work as always so here's for future reference
+# frontend http_front
+#     bind *:80
+#     mode http
+#     default_backend http_back
+
+# backend http_back
+#     mode http
+#     balance roundrobin
+#     server 507827-web-01 107.23.64.175:80 check
+#     server 507827-web-02 3.95.32.5:80 check
+
+sudo systemctl restart haproxy
+sudo systemctl enable haproxy
+
+sudo service nginx start
