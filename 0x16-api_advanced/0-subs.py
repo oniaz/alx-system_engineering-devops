@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Gathering data from an API"""
+"""Reddit API"""
 
 
 import requests
