@@ -1,3 +1,7 @@
+# *500 Error Resolved - wp-settings.php Typo Fix*
+
+![me when the](https://github.com/oniaz/alx-system_engineering-devops/blob/master/0x19-postmortem/images.png "me when the") <br>
+
 **Issue Summary:**
 - **Duration:** The outage lasted 41 minutes, occurring from 5:12 am to 5:33 am GMT+2.
 - **Impact:** Users experienced a 500 Internal Server Error when attempting to access the webpage, resulting in an inability to access the service during the outage period.
