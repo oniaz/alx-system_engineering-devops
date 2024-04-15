@@ -1,4 +1,4 @@
-# *500 Error Resolved - wp-settings.php Typo Fix*
+# 500 Error Resolved - wp-settings.php Typo Fix
 
 ![me when the](https://github.com/oniaz/alx-system_engineering-devops/blob/master/0x19-postmortem/images.png "me when the") <br>
 
